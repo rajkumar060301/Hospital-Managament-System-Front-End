@@ -39,11 +39,10 @@
               <th scope="col">Id</th>
               <th scope="col">Name</th>
               <th scope="col">Age</th>
-              <th scope="col">Blood</th>
-              <th scope="col">Prescription</th>
-              <th scope="col">Dose</th>
               <th scope="col">Fees</th>
               <th scope="col">Urgency</th>
+              <th scope="col">Action</th>
+
           </tr>
       </thead>
       <tbody>
@@ -53,11 +52,9 @@
                       <td>{{ patient.id }}</td>
                       <td>{{ patient.name }}</td>
                       <td>{{ patient.age }}</td>
-                      <td>{{ patient.blood }}</td>
-                      <td>{{ patient.prescription }}</td>
-                      <td>{{ patient.dose }}</td>
                       <td>{{ patient.fees }}</td>
                       <td>{{ patient.urgency }}</td>
+                      <td><button class="btn btn-danger" (click)="deleteData(patient.id)">Delete</button></td>
                   </tr>
               }
 

@@ -14,7 +14,6 @@ export class MedicineComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.medicineService.fetchData().subscribe((data) => {
-      console.log(data);
         this.medicineData = data;
       },
       (error) => {

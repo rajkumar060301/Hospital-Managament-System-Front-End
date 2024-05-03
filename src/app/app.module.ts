@@ -11,6 +11,9 @@ import { PatientService } from './services/patient.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CreateAppointmentComponent } from './create-appointment/create-appointment.component';
+import { HomeComponent } from './home/home.component';
+import { DoctorloginComponent } from './doctorlogin/doctorlogin.component';
+import { CreatePatientComponent } from './create-patient/create-patient.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { CreateAppointmentComponent } from './create-appointment/create-appointm
     MedicineComponent,
     CreateMedicineComponent,
     CreateAppointmentComponent,
+    HomeComponent,
+    DoctorloginComponent,
+    CreatePatientComponent,
   ],
   imports: [
     BrowserModule,

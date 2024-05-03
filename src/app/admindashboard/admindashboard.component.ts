@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { Patinet } from '../patinet';
+import { Patinet } from '../patient';
 import { PatientService } from '../services/patient.service';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 export class AdmindashboardComponent {
   patients : Patinet[] = [];
 
-  constructor(private patientService : PatientService){}
+  constructor(private patientService : PatientService, private router : Router){}
   ngOnInit(): void {
 
     this.getPatients();
@@ -21,10 +22,28 @@ export class AdmindashboardComponent {
 
   getPatients(){
     this.patientService.getPatientList().subscribe(data=>{
-      console.warn(data);
       return this.patients=data;
-      console.warn(this.patients);
     })
+  }
+
+  deleteData(id:number){
+    this.patientService.deletePatients(id).subscribe(
+      (response: any) => { 
+        console.log(response.message);
+        this.goPatients();
+      },
+      (error: HttpErrorResponse) => {
+        console.error('Error deleting appointment:', error);
+      }
+    );
+  }
+
+
+  goPatients() {
+    const currentUrl = this.router.url; 
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => { 
+      this.router.navigate([currentUrl]);
+    });  
   }
   
 
