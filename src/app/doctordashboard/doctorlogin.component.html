@@ -15,7 +15,7 @@
       </ul>
   
       <div class="mx-2">
-        <button style="margin: 5px;"class="btn btn-danger" data-toggle="modal" data-target="#loginModal"><a style="color:white;" href="javascript:void(0);" routerLink="/home">Logout</a></button>
+      <button style="margin: 5px;"class="btn btn-danger" (click)="logOut()">Logout</button>
         
     </div>
       
@@ -26,7 +26,7 @@
     <hr>
       <h2 style="text-align: center;margin-top: 20PX;">Doctor Dashboard</h2>
       <a style="color: rgb(86, 86, 86); font-size: x-large;"><marquee behavior="scroll" direction="left">
-        Welcome to Doctor Dashboard. Please find the patient list below!!. Click Appointments to view and update Appointments, Click Add Appointment to add new Appointment</marquee></a>
+        Welcome to Doctor Dashboard. Please find the patient list below!!. Click Patients to view and update Patients, Click Add Appointment to add new Appointment</marquee></a>
     <hr>
     <!-- <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search" (input)="searchPatients()">  -->
     <br>
@@ -39,9 +39,8 @@
                 <th scope="col">Name</th>
                 <th scope="col">Age</th>
                 <th scope="col">Blood</th>
-                <th scope="col">Prescription</th>
-                <th scope="col">Dose</th>
                 <th scope="col">Urgency</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -52,9 +51,12 @@
                         <td>{{ patient.name }}</td>
                         <td>{{ patient.age }}</td>
                         <td>{{ patient.blood }}</td>
-                        <td>{{ patient.prescription }}</td>
-                        <td>{{ patient.dose }}</td>
                         <td>{{ patient.urgency }}</td>
+                        <td>
+                          <button class="btn btn-info px-4" (click)="updatePatient(patient.id)">Edit</button>
+                          <button class="btn btn-danger px-2" (click)="deleteData(patient.id)" style="margin-left:10px;">Delete</button>
+                          <button class="btn btn-success px-2" (click)="viewPatients(patient.id)" style="margin-left:10px;">View</button>
+                        </td>
                     </tr>
                 }
   

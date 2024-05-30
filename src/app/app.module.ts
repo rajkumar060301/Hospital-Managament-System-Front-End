@@ -12,8 +12,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CreateAppointmentComponent } from './create-appointment/create-appointment.component';
 import { HomeComponent } from './home/home.component';
-import { DoctorloginComponent } from './doctorlogin/doctorlogin.component';
+import { DoctorloginComponent } from './doctordashboard/doctorlogin.component';
 import { CreatePatientComponent } from './create-patient/create-patient.component';
+import { UpdatePatientComponent } from './update-patient/update-patient.component';
+import { ViewPatientComponent } from './view-patient/view-patient.component';
+import { UpdateMedicineComponent } from './update-medicine/update-medicine.component';
+import { DoctorloginportalComponent } from './doctorloginportal/doctorloginportal.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { DoctorRegisterComponent } from './doctor-register/doctor-register.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +31,12 @@ import { CreatePatientComponent } from './create-patient/create-patient.componen
     HomeComponent,
     DoctorloginComponent,
     CreatePatientComponent,
+    UpdatePatientComponent,
+    ViewPatientComponent,
+    UpdateMedicineComponent,
+    DoctorloginportalComponent,
+    AdminloginComponent,
+    DoctorRegisterComponent,
   ],
   imports: [
     BrowserModule,

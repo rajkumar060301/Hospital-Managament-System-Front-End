@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MedicineService } from '../services/medicine.service';
+import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-medicine',
@@ -9,10 +11,8 @@ import { MedicineService } from '../services/medicine.service';
 export class MedicineComponent {
   medicineData: any;
 
-  constructor(private medicineService:MedicineService) { }
+  constructor(private medicineService:MedicineService, private router : Router) { }
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.medicineService.fetchData().subscribe((data) => {
         this.medicineData = data;
       },
@@ -20,7 +20,37 @@ export class MedicineComponent {
         console.error('Error fetching data:', error);
       }
     );
+
+
   }
 
+  updateMedicine(id : number){
+    return this.goToMedicine(id);
+
+  }
+
+  deleteMedicine(id : number){
+    this.medicineService.deleteMedicine(id).subscribe(
+      (response: any) => { 
+        console.log(response.message);
+        this.goToMedicines();
+      },
+      (error: HttpErrorResponse) => {
+        console.error('Error deleting medicine:', error);
+      }
+    );
+
+  }
+
+  goToMedicine(id : number){
+    return this.router.navigate(['/update-medicine',id]);
+  }
+
+  goToMedicines(){
+    const currentUrl = this.router.url; 
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => { 
+      this.router.navigate([currentUrl]);
+    });  
+  }
 
 }

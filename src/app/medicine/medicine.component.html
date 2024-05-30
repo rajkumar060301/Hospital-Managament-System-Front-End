@@ -9,10 +9,13 @@
           <li class="nav-item">
               <a style="color: white;"class="nav-link active" aria-current="page" href="/create-medicine">Add Medicine</a>
           </li>
+            <li class="nav-item">
+                <a style="color: white;"class="nav-link active" aria-current="page" href="doctordashboard">Back</a>
+            </li>
         </ul>
   
         <div class="mx-2">
-          <button style="margin: 5px;"class="btn btn-danger" data-toggle="modal" data-target="#loginModal"><a style="color:white;" href="javascript:void(0);" routerLink="/home">Logout</a></button>
+          <!-- <button style="margin: 5px;"class="btn btn-danger" data-toggle="modal" data-target="#loginModal"><a style="color:white;" href="javascript:void(0);" routerLink="/home">Logout</a></button> -->
           
         </div>
         
@@ -35,6 +38,7 @@
                 <th scope="col">Id</th>
                 <th scope="col">Drug Name</th>
                 <th scope="col">Stock</th>
+                <th scope="col">Action</th>
 
             </tr>
         </thead>
@@ -45,8 +49,10 @@
                         <td>{{ medicine.id }}</td>
                         <td>{{ medicine.drugName }}</td>
                         <td>{{ medicine.stock }}</td>
-
-
+                        <td>
+                          <button class="btn btn-success" (click)="updateMedicine(medicine.id)">Edit</button>
+                          <button class="btn btn-danger" (click)="deleteMedicine(medicine.id)" style="margin-left:10px;">Delete</button>
+                        </td>
                     </tr>
                 }
 

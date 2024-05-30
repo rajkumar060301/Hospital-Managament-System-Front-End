@@ -26,6 +26,6 @@ export class CreatePatientComponent {
     this.savePatient();
   }
   goToPatient(){
-    this.router.navigate(['/doctorlogin'])
+    this.router.navigate(['/doctordashboard'])
   }
 }
