@@ -9,12 +9,14 @@ import { HttpClient } from '@angular/common/http';
 export class PatientService {
 
   constructor( private httpClient : HttpClient) { }
-  private baseUrl = "http://localhost:8080/api/v1/patients";
+  //private baseUrl = "http://localhost:8080/api/v1/patients";
+  private baseUrl = "https://hospital-management-system-backend-88dw.onrender.com/api/v1/patients";
   getPatientList():Observable<Patinet[]>{
     return  this.httpClient.get<Patinet[]>(`${this.baseUrl}`);
   }
 
-  private baseUrlPatient = "http://localhost:8080/api/v1/insert";
+  //private baseUrlPatient = "http://localhost:8080/api/v1/insert";
+  private baseUrlPatient = "https://hospital-management-system-backend-88dw.onrender.com/api/v1/insert";
   createPatient(patient : any):Observable<any>{
     return this.httpClient.post(this.baseUrlPatient, patient);
 

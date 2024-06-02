@@ -9,7 +9,8 @@ export class DoctorRegisterService {
 
   constructor(private httpClient: HttpClient) { }
 
-  baseUrl = "http://localhost:8080/api/v4/doctor/register"
+  //baseUrl = "http://localhost:8080/api/v4/doctor/register"
+  baseUrl = "https://hospital-management-system-backend-88dw.onrender.com/api/v4/doctor/register"
 
   createDoctor(doctor: any):Observable<any>{
     return this.httpClient.post(this.baseUrl,doctor)

@@ -8,7 +8,8 @@ export class DoctorauthService {
 
   constructor(private httpClient : HttpClient) { }
 
-  private apiUrl = 'http://localhost:8080/api/v4/doctor/doctorlist';
+  //private apiUrl = 'http://localhost:8080/api/v4/doctor/doctorlist';
+  private apiUrl = 'https://hospital-management-system-backend-88dw.onrender.com/api/v4/doctor/doctorlist';
   authenticate(username :string, password: string){
     if(username=="rajkumar" && password=="rajkumar"){
       sessionStorage.setItem("username", username);
